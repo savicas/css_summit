@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>CSS-Summit</title>
+	<link rel="stylesheet" href="screen.css" type="text/css" media="screen" title="screen.css" charset="utf-8">
+	
+</head>
+<body>
+	<div class="rachelandrew_wrap">
+		
+	</div>
+	<h1 id="rachelandrew">SELECTORS:</h1> 
+	<p>CSS3 es modular y la W3C es quien proporciona los grados de madurez que tiene <a target="blank" href="http://www.w3.org/2005/10/Process-20051014/tr#maturity-levels:"> Madurez W3C</a>y suelen seguir este proceso: 
+	</p>
+	<ul>
+		<li>Nivel de Madurez en el proceso del trabajo: WD - working draft, es el borrador de trabajo que publica la W3C para que sea revisado por la comunidad, miembros de la W3C, público y demás org técnicas.</li>
+		<li>Nivel de Madurez del proceso de recomendación: </li>
+		<ol>
+			<li>CR - Candidate Recommendation, es un documento publicado que se ha revisado ampliamente x la W3C y que satisface los requerimientos técnicos.</li>
+			<li>PR - Proposed Recommendation, es un informe técnico enviado al Comité Asesor del W3c más madurado, revisado por la W3C, aplicable y sólido técnicamente, para su aprobación final.</li>
+			<li>REC - W3C Recommendation, es una especificación o un conjunto de directrices aprobadas por la W3C y de su director. Es la aprobación final del trabajo de recomendaciones anterior. NOTA: Las recomendaciones de la W3C son similares a las normas publicadas por otras org.</li>
+		</ol>
+		<li>Nivel de Madurez en el proceso de finalización del informe técnico: Working Group Note es un informe publicado por la W3C para indicar que el trabajo ha terminado con un tema particular.</li>
+		<li>Nivel de Madurez en la edición de la recomendación: Proposed Edited Recommendation, es una recomendación publicada que ha sido revisada.</li>
+		<li>Nivel de madurez cuando se rescinde una recomendación: Rescinded Recommendation.</li>
+		<li>Nivel de Madurez para los informes de los grupos de interés y coordinación del grupo técnico: La W3C puede publicar notras de grupos de interés y de grupos de coordinación porque están estrechamete vinculados con la W3C Working Draft y se pueden complementar.</li>
+	</ul>
+	<h2>Selectores de Módulo</h2>
+	<p><a href="http://www.w3.org/TR/css3-selectors">Recomendaciones</a> propuestas por la W3C
+	</p>
+	<p>
+		En CSS3 los selectores tienen un sentido comun y es que buscan una mayor precisión sin necesidad de añadir clases. Estos son algunas <span>pseudo-clases:</span>
+	</p>
+	<ul>
+		<li><u>:firts-child</u> --> con él puedes retocar el primer "hijo" de un parent element (por ejemplo, un grupo de párrafos. Ej de código: 
+			<pre>div#wrapper p:first-child {font-size: 1.5em;}</pre>)</li>
+		<li><u>:last-child</u> --> para retocar el último "hijo". PE: si quieres eliminar un borde del último párrafo para que no se vea. Ej de código:
+			<pre>ul#navigation li:last-child {border-bottom: none;}</pre></li>
+		<li><u>:nth-child</u> --> Nos sirve, por ejemplo, para escoger y remarcar distintas o todas las celdas de una tabla; Un Ej. de código para seleccionar todas las celdas impares:
+			<pre>tr:nth-child(odd) td {background-color:#ffff;}</pre> Un ejemplo en el que seleccionamos la celda 3: 
+			<pre>tr:nth-child(3) td {background-color: #f0e9C5;}</pre><a href="http:// reference.sitepoint.com/css/understandingnthchildexpressions">Más usos e información aquí</a></li>
+		<li><u>:nth-of-type</u> --> Selecciona múltiples elementos de acuerdo a su posición en el árbol del documento pero sólo esos elementos que son iguales a la norma que se le aplica. Ej: queremos que todos los párrafos que justo antes tienen un "heading" tengan un fondo amarillo; El código sería así:
+			<pre> p:nth-of-type(odd) {background-color: yellow;}</pre></li>
+		<li><u>:only-child</u> --> encaja con el elemento si es el único elemento de su "parent". Código de ejemplo:
+			<pre>li {list-style-tipe: disc;} li: onli-child { list-style-tipe:none;} así, el li que sea distinto a los demás li no llevará el disc</pre></li>
+		<li><u>:empty</u> --> encaja con el elemento si este está vacío. Un ejemplo de código:
+			<pre> p {padding: 0 0 0 1em; margin: 0;} p:empty { padding: 0;}</pre></li>
+		<span>Para elementos input:</span>
+		<li><u>:checked</u> --> para un checkbox o radio button. Por ejemplo: 
+			<pre>#agreeterms:checked { border: 2px solid blue;}</pre></li>
+		<li><u>:enabled</u> -->detecta el estado del elemento input. Código de ej:
+			<pre>input:enabled {color:#000;}</pre></li>
+		<li><u>:disabled</u> -->detecta el estado del elemento input. Código de ej:
+			<pre>input:disabled {color:#111;}</pre></li>
+		<li><u>:not(selector)</u> --> Es el pseudo-element de negación; Ejemplo de código: 
+			<pre>p:not (.box) { padding:0 0 0 3em; margin: 0;} p.box {border: 1px solid blue; margin: 0 0 0 2em;}</pre></li>
+		<li><u>:firt-letter</u> --> Para modificar el primer carácter de la primera línea del texto. Ejemplo de código:
+			<pre>div#wrap:first-letter {color: red; font-size: 200%;}</pre></li>
+		<li><u>:first line</u> -->Formatea la primera línea del texto. Ej. de código:
+			<pre>div#wrap:first-line {color: red; font-size: 200%;}</pre></li>
+		<li><u>:before</u>  -->Renderiza antes el contenido element que el resto de contenido. Ej. de código: 
+			<pre>div id="content"> y en el CSS --> #content:before {content: "Start here:";}</pre></li>
+		<li><u>:after</u> --> Renderiza más tarde el contenido del element. Por ejemplo: 
+			<pre>#content:after { content:"End here:";}</pre> </li>
+		<li><u>::Selection</u> -->contenido seleccionado por el usuario en el navegador. Código de ej: 
+			<pre>div#wrapper p::selection {background-color: red;}</pre></li>
+		<li><u>Combinators</u> --> combinan selectores para algunos elementos</li>
+		<li><u>Child selector</u> --> Selecciona todos los elementos que son hijos inmediatamente después de un padre específico. Por ejemplo:
+			<pre>
+				<ul>
+					<li>Item 1</li>
+						<ol>
+							<li>Sub list item 1</li>
+							<li>Sub list item 2</li>
+						</ol>
+					</li>
+					<li>Item 2</li>
+				</ul><span>y en el css:</span>li {color: #000;} ul > li {color: red;}</pre></li>
+		<li><u>Adjacent sibling (hermano adyacente)</u> --> Selecciona elementos que son los hermanos adyacentes  de un elemento. Por ejemplo: 
+			<pre>div#wrapper h1+p {font-size: 1.5em;}</pre></li>
+		<li><u>General Sibling (hermano gral)</u> --> Selecciona los elementos que son hermanos del elemento. Código de ejemplo: 
+		<pre>div#wrapper h2~p {color:red;}</pre> </li>
+		<span>Selectores de Atributos:</span>
+		<li>Seleccionan elementos basados en atributos. Por ejemplo: 
+			<pre>form input[type="text"] {}      form input[type="submit"]{}</pre> Un ejemplo de codificación podría ser: 
+			<pre> a[href ^="mailto:"] { padding-right: 20px; background-color:#555;}</pre></li>
+	</ul>
+	<h2>Sí importa el soporte de Navegación.</h2>
+	<h3>JavaScript nos ayuda a tapar los agujeros en el soporte de navegación.</h3>
+	<h4>JQuery:first-child:</h4>
+	<pre>
+		div#wrapper p:first-child,
+		div#wrapper p.first {
+				font-size: 1.5em;
+		}
+	</pre>
+	<pre>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<sript>
+			$(document).ready(function(){
+				$("div#wrapper p:first-child").addClass("first");
+			});</sript>
+	</pre>
+	<h4>JQuery:last-child:</h4>
+	<pre>
+		ul#navigation li:last-child, ul#navigation li.last {
+		! ! border-bottom: none;
+		}
+	<pre>
+		<script src="http://code.jquery.com/jquery-latest.js"></
+		script>
+		<script>
+		  $(document).ready(function(){
+		$("ul#navigation li:last-child").addClass("last");
+		  });
+		</script>
+	</pre>	
+	<h4>JQuery:nth-child:</h4>
+	<pre>
+		tr:nth-child(odd) td, td.odd {
+				background-color: #f0e9c5;
+		}
+	</pre>
+	<pre>
+		<script src="http://code.jquery.com/jquery-latest.js"></
+		script>
+		<script>
+		  $(document).ready(function(){
+		$("tr:nth-child(odd) td").addClass("odd");
+		  });
+		</script>
+	</pre>
+	<h4>Polyfills CSS:</h4>
+	<p>Un <a href="http://remysharp.com/2010/10/08/what-is-a-polyfill/">Polyfill, o polyfiller</a>, es un programa (o plugin) que proporciona la tecnología que esperas que el navegador proporcione de forma nativa. Esto es, que si el navegador no soporta alguna de las funcionalidades que le pedimos (gradientes, :first-child,...), el polyfill se ejecutará de manera que el navegador lo "soporte".</p>
+	<h4>Otras herramientas:</h4>
+	<a href="http://selectivizr.com">Selectivizr</a></br><a href="http://ecsstender.org">eCSStender</a>
+	<h4>CSS3 Workflow: Cómo enfocar los proyectos</h4>
+	<ol>
+		<li>Desarrollar sin ningún tipo de polyfill o JavaScript</li>
+		<li>Validar</li>
+		<li>Testear y arreglar en antiguos navegadores</li>
+		<li>Decidir si necesitamos usar polyfill y de qué tipo</li>
+		<li>Testear otra vez</li>
+	</ol>
+
+</body>
+</html>
